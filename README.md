@@ -102,7 +102,7 @@ In order to run this project you need:
 Clone this repository to your desired folder:
 
 ```sh
-  git clone https://github.com/shafiuyushawu/weather-app.git && cd weather-app
+  git clone https://github.com/shafiuyushawu/weather.git && cd weather-app
 ```
 
 ### Install
@@ -166,7 +166,7 @@ To run the project, execute the following command:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/shafiuyushawu/weather-app/issues/).
+Feel free to check the [issues page](https://github.com/shafiuyushawu/weather/issues/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

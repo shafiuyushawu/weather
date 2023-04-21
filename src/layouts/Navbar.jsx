@@ -1,13 +1,19 @@
 import { Link } from 'react-router-dom';
-import { FcHome } from 'react-icons/fc';
+import { IoChevronBackSharp } from 'react-icons/io5';
+import { AiFillSetting } from 'react-icons/ai';
+import { BiMicrophone } from 'react-icons/bi';
 
 const Navbar = () => (
-  <nav className="navbar bg-neutral text-neutral-content" data-test="navbar">
-    <div className="flex-1">
-      <Link to="/" className="btn btn-ghost normal-case text-xl p-2">
-        <FcHome className="inline text-4xl mr-4" />
-        Weather Forecast
-      </Link>
+  <nav className="navbar bg-[#4b7bec] text-white">
+    <div className="navbar-start">
+      <Link className="btn btn-ghost normal-case text-xl" to="/"><IoChevronBackSharp className="inline text-3xl mr-4" /></Link>
+    </div>
+    <div className="navbar-center">
+      Weather Forecast
+    </div>
+    <div className="navbar-end">
+      <BiMicrophone className="text-2xl mr-4" />
+      <AiFillSetting className="text-white text-2xl mr-4" />
     </div>
   </nav>
 );

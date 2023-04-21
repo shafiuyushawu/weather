@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { AiFillCloud } from 'react-icons/ai';
 import { GoSearch } from 'react-icons/go';
 import Loading from '../components/Loading';
 import CurrentCondtion from '../components/CurrentCondtion';
@@ -37,7 +36,7 @@ const Weather = () => {
 
   if (isLoading) {
     return (
-      <div className="flex justify-center items-center h-screen">
+      <div className="flex  bg-[#4b7bec] justify-center items-center h-screen">
         <Loading />
       </div>
     );
@@ -48,41 +47,29 @@ const Weather = () => {
   }
 
   return (
-    <div className="h-screen">
+    <div className="h-screen bg-[#4b7bec]">
       <section>
         <div className="bg-gradient-to-tl from-green-900 to-blue-700 h-52 w-full  relative">
           <img
             src={backImg}
             alt="back"
-            className="w-full h-full object-cover absolute mix-blend-overlay"
+            className="w-full h-full object-cover absolute mix-blend-overlay opacity-40"
           />
+          <CurrentCondtion />
         </div>
-        <div className=" flex flex-col justify-between px-3 items-center md:flex-row">
-          <ul className="px-2 align-bottom flex gap-4 justify-center text-[18px]">
-            <li className="text-white font-bold text-right md:text-2xl">
-              {location && location.region && <p>{location.region}</p>}
-            </li>
-            |
-            <li className="text-white font-bold  text-right text-[18px] md:text-2xl">
-              {location && location.country && <p>{location.country}</p>}
-            </li>
-            |
-            <li className="text-white align-bottom font-bold  text-[18px] md:text-2xl">
-              {location && location.continent && <p>{location.continent}</p>}
-            </li>
-          </ul>
-          <form onSubmit={handleSubmit} className="flex pt-2 flex-row">
+        <div className="bg-gradient-to-tr from-blue-800 to-[#6c70c5] flex flex-col justify-between items-center md:flex-row">
+          <form onSubmit={handleSubmit} className="flex flex-row w-full">
             <input
               type="text"
-              placeholder="Search by coutry | city"
+              placeholder="Search by Country | City"
               value={submit}
               onChange={(e) => setSubmit(e.target.value)}
-              className="input bg-white  input-sm md:input-xl w-full text-[15px] text-black rounded-r-none placeholder:text-[15px] placeholder:text-black"
+              className="input bg-[#4b7bec] border-none opacity-80 input-sm md:input-xl w-full text-[15px] text-white rounded-r-none placeholder:text-[15px] placeholder:text-white"
             />
             <button
               type="submit"
               id="submit"
-              className="btn  rounded-l-none btn-sm bg-gradient-to-tr from-blue-800 to-green-600"
+              className="btn border-none  rounded-l-none btn-sm bg-gradient-to-tr from-blue-800 to-[#6c70c5]"
             >
               <GoSearch className="text-white font-extrabold text-2xl " />
               .
@@ -90,15 +77,31 @@ const Weather = () => {
           </form>
         </div>
       </section>
-      <section className=" p-3">
-        <CurrentCondtion />
-      </section>
-      <section>
-        <h1 className="text-xl bg-gradient-to-tr from-blue-800 to-green-600 text-white flex justify-center items-center mb-5">
-          Daily Forecasts
-          <AiFillCloud className="inline text-white font-bold ml-2" />
+      <section className="" />
+      <section className="text-white">
+        <h1 className="text-xl bg-gradient-to-tr from-blue-800 to-[#6c70c5] text-white flex justify-center items-center">
+          <ul className="flex gap-4 justify-center text-[16px]">
+            <li className="text-white  text-right md:text-2XL">
+              {location && location.region && <p>{location.region}</p>}
+            </li>
+            |
+            <li className="text-white text-[16px] md:text-2xl">
+              {location && location.country && <p>{location.country}</p>}
+            </li>
+            |
+            <li className="text-white align-bottom text-[16px] md:text-2xl">
+              {location && location.continent && <p>{location.continent}</p>}
+            </li>
+          </ul>
         </h1>
-        <ul className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-8 gap-2 p-2">
+        <ul className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-8 gap-2 p-2 bg-[#4b7bec]
+        [&>*:nth-child(2)]:bg-gradient-to-bl [&>*:nth-child(2)]:from-[#6c70c5] [&>*:nth-child(2)]:to-blue-700
+        [&>*:nth-child(3)]:bg-gradient-to-bl [&>*:nth-child(3)]:from-[#6c70c5] [&>*:nth-child(3)]:to-blue-700
+        [&>*:nth-child(6)]:bg-gradient-to-bl [&>*:nth-child(6)]:from-[#6c70c5] [&>*:nth-child(6)]:to-blue-700
+        [&>*:nth-child(7)]:bg-gradient-to-bl [&>*:nth-child(7)]:from-[#6c70c5] [&>*:nth-child(7)]:to-blue-700
+        [&>*:nth-child(10)]:bg-gradient-to-bl [&>*:nth-child(10)]:from-[#6c70c5] [&>*:nth-child(10)]:to-blue-700
+        "
+        >
           {forecast
             && forecast.map((fcast) => (
               <DailyForecast key={fcast.id} fcast={fcast} />

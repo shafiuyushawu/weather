@@ -2,28 +2,29 @@ import { useSelector } from 'react-redux';
 import { WiDegrees, WiHumidity } from 'react-icons/wi';
 import { GiWindTurbine } from 'react-icons/gi';
 import { HiOutlineLocationMarker } from 'react-icons/hi';
-import { BiCurrentLocation } from 'react-icons/bi';
+import { AiFillCloud } from 'react-icons/ai';
 
 const CurrentCondtion = () => {
-  const { conditions } = useSelector((state) => state.weather);
+  const { conditions, forecast } = useSelector((state) => state.weather);
   return (
-    <div className="">
-      <h1 className="text-xl bg-gradient-to-tr from-blue-800 to-green-600 text-white flex justify-center items-center gap-3 mb-5">
-        Current conditions
-        <BiCurrentLocation />
+    <div className="text-white p-3">
+      <h1 className="text-center text-xl mb-3 flex justify-center items-center">
+        Current Conditions
+        <AiFillCloud className="inline text-white font-bold ml-2" />
       </h1>
       <div className="flex flex-col">
-        <h2 className="text-center ">
-          Last Updated:
-          {'   '}
-          <span className="text-white">
+        <h2 className="text-center flex just text-white">
+          <span className="">Last Updated:</span>
+          <span className="font-bold">
             {conditions && conditions.last_updated && (
-              <p>{conditions.last_updated}</p>
+              <p>
+                {conditions.last_updated}
+              </p>
             )}
           </span>
         </h2>
         <div className="flex justify-between gap-5">
-          <ul className="grid grid-cols-1 md:grid-cols-1 xl:grid-cols-4 mb-5">
+          <ul className="grid grid-cols-1 md:grid-cols-1 xl:grid-cols-4">
             <li className="flex">
               Temperature:
               {' '}
@@ -58,12 +59,20 @@ const CurrentCondtion = () => {
               <GiWindTurbine />
             </li>
           </ul>
-          <div>
+          <div className="flex flex-col justify-center items-center">
             {conditions && conditions.icon && (
               <img src={conditions.icon} alt="icon" />
             )}
             <span>
               {conditions && conditions.text && <p>{conditions.text}</p>}
+            </span>
+            <hr />
+            <span className="flex flex-col text-center">
+              <span>Predicts</span>
+              <span>
+                {forecast && forecast.length}
+                Days Ahead
+              </span>
             </span>
           </div>
         </div>

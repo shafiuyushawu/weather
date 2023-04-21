@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { TbTemperatureCelsius, TbCloudSnow } from 'react-icons/tb';
 import { WiHumidity } from 'react-icons/wi';
 import { BsFillCloudLightningRainFill } from 'react-icons/bs';
-import { FcHome } from 'react-icons/fc';
+import { IoArrowBackCircle } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
 
 const WeatherDetails = () => {
@@ -11,24 +11,24 @@ const WeatherDetails = () => {
   } = useSelector((state) => state.weather);
 
   return (
-    <section>
+    <section className="bg-[#4b7bec] h-screen">
       <div className="px-3 bg-gradient-to-tl from-green-900 to-blue-700 h-52 w-full  relative">
         <img src={icon} alt="icon" className="w-32 " />
         <div className="">
           <h2 className="text-white font-bold text-4xl text-right ">{text}</h2>
         </div>
       </div>
-      <ul className="py-3">
-        <li className="flex justify-between px-2 items-center border-t-2 text-xl p-1">
+      <ul className="py-5 text-white ">
+        <li className="flex justify-between items-center  p-4 text-xl ">
           <span>Maximum Temperature:</span>
-          <span className="text-white font-bold flex">
+          <span className="font-bold flex">
             {maxtemp}
             {' '}
             <TbTemperatureCelsius className="text-xl ml-1" />
             {' '}
           </span>
         </li>
-        <li className="flex justify-between px-2 items-center bg-[#34495e] border-t-2 text-xl p-1">
+        <li className="flex justify-between p-4  items-center text-xl bg-gradient-to-bl from-[#6c70c5] to-blue-700">
           <span>Minumum Temperature:</span>
           <span className="text-white font-bold flex">
             {mintemp}
@@ -37,7 +37,7 @@ const WeatherDetails = () => {
             {' '}
           </span>
         </li>
-        <li className="flex justify-between px-2 items-center  border-t-2 text-xl p-1">
+        <li className="flex justify-between p-4  items-center text-xl">
           <span>Average Temperature:</span>
           <span className="text-white font-bold flex">
             {avgtemp}
@@ -46,7 +46,7 @@ const WeatherDetails = () => {
             {' '}
           </span>
         </li>
-        <li className="flex justify-between px-2 items-center bg-[#34495e]  border-t-2 text-xl p-1">
+        <li className="flex justify-between p-4  items-center text-xl bg-gradient-to-bl from-[#6c70c5] to-blue-700">
           <span>Average Humidity:</span>
           <span className="text-white font-bold flex">
             {avghumidity}
@@ -55,7 +55,7 @@ const WeatherDetails = () => {
             {' '}
           </span>
         </li>
-        <li className="flex justify-between px-2 items-center  border-t-2 text-xl p-1">
+        <li className="flex justify-between p-4 items-center text-xl ">
           <span>Daily Chance of Rain:</span>
           <span className="text-white font-bold flex">
             {rain}
@@ -64,7 +64,7 @@ const WeatherDetails = () => {
             {' '}
           </span>
         </li>
-        <li className="flex justify-between px-2 items-center bg-[#34495e] border-b-2  border-t-2 text-xl p-1">
+        <li className="flex justify-between p-4  items-center   text-xl bg-gradient-to-bl from-[#6c70c5] to-blue-700">
           <span>Daily Chance of Snow:</span>
           <span className="text-white font-bold flex">
             {snow}
@@ -77,10 +77,10 @@ const WeatherDetails = () => {
 
       <Link
         to="/"
-        className="btn btn-ghost normal-case flex justify-center text-xl text-xl p-2"
+        className="btn btn-ghost normal-case flex justify-center text-xl p-2 text-white"
       >
-        <FcHome className="inline text-2xl mr-4" />
-        Go Home
+        <IoArrowBackCircle className="inline text-2xl mr-4" />
+        Back
       </Link>
     </section>
   );

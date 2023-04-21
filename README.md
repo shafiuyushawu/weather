@@ -1,3 +1,17 @@
+
+    <nav className="navbar bg-[#4b7bec] text-neutral-content" data-test="navbar">
+      <div className="flex-1">
+        <Link to="/" className="btn btn-ghost normal-case text-xl p-2">
+          <IoChevronBackSharp className="inline text-4xl mr-4" />
+        </Link>
+      </div>
+      <div>
+        Weather Forecast
+      </div>
+      //
+      {' '}
+    </nav>
+
 <a name="readme-top"></a>
 
 <div align="center">
@@ -137,7 +151,7 @@ To run the project, execute the following command:
 
 ### Deployment
 
-[Render](https://weather-app-r266.onrender.com/)
+[Render](https://weather-76ks.onrender.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
